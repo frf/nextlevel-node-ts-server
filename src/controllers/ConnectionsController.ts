@@ -3,19 +3,35 @@ import db from '../database/connection';
 
 export default class ConnectionsController {
     async index(request: Request, response: Response) {
-        const totalConnections = await db('connections').count('* as total');
-        const { total } = totalConnections[0];
+        try {
+            const totalConnections = await db('connections').count('* as total');
+            const { total } = totalConnections[0];
 
-        return response.json({total});
+            return response.json({total});
+        } catch (err) {
+            return response.status(400).json({
+                error: 'Erro index class'
+            });
+        }
     }
 
     async create(request: Request, response: Response) {
-        const { user_id } = request.body;
+        try {
 
-        await db('connections').insert({
-            user_id,
-        });
+            const { user_id } = request.body;
 
-        return response.send();
+            await db('connections').insert({
+                user_id,
+            });
+
+            return response.send();
+
+        } catch (err) {
+            return response.status(400).json({
+                error: 'Erro create class and user: '
+            });
+        }
     }
+
+
 }
