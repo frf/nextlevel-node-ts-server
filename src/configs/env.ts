@@ -10,4 +10,5 @@ export default {
     DB_USER: process.env.APP_DB_USER,
     DB_PASS: process.env.APP_DB_PASS,
     DB_NAME: process.env.APP_DB_NAME,
+    DATABASE_URL: process.env.DATABASE_URL,
 };

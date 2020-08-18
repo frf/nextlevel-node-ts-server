@@ -2,13 +2,9 @@ import path from 'path';
 import env from './src/configs/env';
 
 module.exports = {
-    client: 'mysql',
-    connection: {
-        host : env.DB_HOST,
-        user: env.DB_USER,
-        password: env.DB_PASS,
-        database: env.DB_NAME,
-    },
+    client: 'pg',
+    connection: env.DATABASE_URL,
+    searchPath: ['knex', 'public'],
     migrations: {
         directory: path.resolve(__dirname, 'src', 'database', 'migrations')
     },
