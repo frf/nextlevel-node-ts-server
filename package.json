@@ -1,8 +1,12 @@
 {
-  "name": "server",
+  "name": "appt2u-proffy-server",
   "version": "1.0.0",
+  "author": "Fabio Rocha",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
   "devDependencies": {},
   "scripts": {
     "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts",
